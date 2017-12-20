@@ -7,11 +7,11 @@ if [ -d "./Libs/RHEL6_64_GCC444" ]; then
     echo "Creating links for shared objects for Libs/RHEL6_64_GCC444"
     echo " "
     cd Libs/RHEL6_64_GCC444/Optimized/Shared;
-    ln -s librssl-eta3.1.1.L1.so librssl.so.7
+    ln -s librssl-eta3.1.2.G1.so librssl.so.7
     ln -s librssl.so.7 librssl.so
     cd ../../../..
     cd Libs/RHEL6_64_GCC444/Optimized_Assert/Shared;
-    ln -s librssl-eta3.1.1.L1.so librssl.so.7
+    ln -s librssl-eta3.1.2.G1.so librssl.so.7
     ln -s librssl.so.7 librssl.so
     cd ../../../..
     cd Libs/RHEL6_64_GCC444/Optimized/Shared;
@@ -34,11 +34,11 @@ if [ -d "./Libs/OL7_64_GCC482" ]; then
     echo "Creating links for shared objects for Libs/OL7_64_GCC482"
     echo " "
     cd Libs/OL7_64_GCC482/Optimized/Shared;
-    ln -s librssl-eta3.1.1.L1.so librssl.so.7
+    ln -s librssl-eta3.1.2.G1.so librssl.so.7
     ln -s librssl.so.7 librssl.so
     cd ../../../..
     cd Libs/OL7_64_GCC482/Optimized_Assert/Shared;
-    ln -s librssl-eta3.1.1.L1.so librssl.so.7
+    ln -s librssl-eta3.1.2.G1.so librssl.so.7
     ln -s librssl.so.7 librssl.so
     cd ../../../..
     cd Libs/OL7_64_GCC482/Optimized/Shared;
