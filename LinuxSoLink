@@ -1,0 +1,64 @@
+#!/bin/bash
+
+ROOT=$(pwd)
+
+for dir in $(find $ROOT/Cpp-C/Eta/Libs -name Shared -type d)
+do
+    cd $dir
+    
+    # assume we have librsslVACache.so.3.2.0.0 which is not a link
+    if [ -f librsslVACache.so.3.2.0.1 ] && [ ! -h librsslVACache.so.3.2.0.1 ]
+    then
+	if [ ! -f librsslVACache.so.3 ]
+	then ln -s librsslVACache.so.3.2.0.1 librsslVACache.so.3
+	else
+	    if [ ! -h librsslVACache.so.3 ]
+	    then
+		rm -f librsslVACache.so.3
+		ln -s librsslVACache.so.3.2.0.1 librsslVACache.so.3
+	    fi
+	fi
+
+	if [ ! -f librsslVACache.so ]
+	then ln -s librsslVACache.so.3 librsslVACache.so
+	else
+	    if [ ! -h librsslVACache.so ]
+	    then
+		rm -f librsslVACache.so
+		ln -s librsslVACache.so.3 librsslVACache.so
+	    fi
+	fi
+    fi
+done
+
+for dir in $(find $ROOT/Cpp-C/Eta/Libs -name Shared -type d)
+do
+    cd $dir
+    
+    # assume we have librsslRelMcast.so.3.2.0.0 which is not a link
+    if [ -f librsslRelMcast.so.3.2.0.1 ] && [ ! -h librsslRelMcast.so.3.2.0.1 ]
+    then
+	if [ ! -f librsslRelMcast.so.1 ]
+	then ln -s librsslRelMcast.so.3.2.0.1 librsslRelMcast.so.1
+	else
+	    if [ ! -h librsslRelMcast.so.1 ]
+	    then
+		rm -f librsslRelMcast.so.1
+		ln -s librsslRelMcast.so.3.2.0.1 librsslRelMcast.so.1
+	    fi
+	fi
+
+	if [ ! -f librsslRelMcast.so ]
+	then ln -s librsslRelMcast.so.1 librsslRelMcast.so
+	else
+	    if [ ! -h librsslRelMcast.so ]
+	    then
+		rm -f librsslRelMcast.so
+		ln -s librsslRelMcast.so.1 librsslRelMcast.so
+	    fi
+	fi
+    fi
+done
+
+cd $ROOT
+exit 0

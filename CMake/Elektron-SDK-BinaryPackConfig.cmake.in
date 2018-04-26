@@ -1,0 +1,73 @@
+@PACKAGE_INIT@
+
+# It defines the following variables
+#  <PROJECT_NAME>_INCLUDE_DIRS - include directories for <PROJECT_NAME>
+#  <PROJECT_NAME>_LIBRARIES    - libraries to link against
+#  <PROJECT_NAME>_EXECUTABLE   - the <PROJECT_NAME> executable
+
+DEBUG_PRINT(::MESSAGE " Elektron-SDK-BinaryPackConfig: ${Elektron-SDK-BinaryPack_SOURCE_DIR} ")
+# The C and C++ flags added to the cmake-configured flags.
+set(Elektron-SDK-BinaryPack_REQUIRED_C_FLAGS "@Elektron-SDK-BinaryPack_REQUIRED_C_FLAGS@")
+set(Elektron-SDK-BinaryPack_REQUIRED_CXX_FLAGS "@Elektron-SDK-BinaryPack_REQUIRED_CXX_FLAGS@")
+set(Elektron-SDK-BinaryPack_REQUIRED_LINK_FLAGS "@Elektron-SDK-BinaryPack_REQUIRED_LINK_FLAGS@")
+
+# Elektron-SDK-BinaryPack version number
+set(Elektron-SDK-BinaryPack_VERSION_MAJOR "@Elektron-SDK-BinaryPack_VERSION_MAJOR@")
+set(Elektron-SDK-BinaryPack_VERSION_MINOR "@Elektron-SDK-BinaryPack_VERSION_MINOR@")
+set(Elektron-SDK-BinaryPack_VERSION_PATCH "@Elektron-SDK-BinaryPack_VERSION_PATCH@")
+set(Elektron-SDK-BinaryPack_VERSION_PATCH "@Elektron-SDK-BinaryPack_VERSION_TWEAK@")
+
+set(Elektron-SDK-BinaryPack_SOURCE_DIR "@Elektron-SDK-BinaryPack_SOURCE_DIR@")
+
+set(Elektron-SDK-BinaryPack_dacs_LIBRARY
+				"@Elektron-SDK-BinaryPack_dacs_LIBRARY@")
+set(Elektron-SDK-BinaryPack_ansi_LIBRARY
+				"@Elektron-SDK-BinaryPack_ansi_LIBRARY@")
+set(Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY
+				"@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY@")
+set(Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY
+				"@Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY@")
+
+set(Elektron-SDK-BinaryPack_dacs_LIBRARY_DEBUG_MDD
+				"@Elektron-SDK-BinaryPack_dacs_LIBRARY_DEBUG_MDD@")
+set(Elektron-SDK-BinaryPack_dacs_LIBRARY_RELEASE_MD
+				"@Elektron-SDK-BinaryPack_dacs_LIBRARY_RELEASE_MD@")
+set(Elektron-SDK-BinaryPack_ansi_LIBRARY_DEBUG_MDD
+				"@Elektron-SDK-BinaryPack_ansi_LIBRARY_DEBUG_MDD@")
+set(Elektron-SDK-BinaryPack_ansi_LIBRARY_RELEASE_MD
+				"@Elektron-SDK-BinaryPack_ansi_LIBRARY_RELEASE_MD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_DEBUG_MDD
+				"@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_DEBUG_MDD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_RELEASE_MD
+				"@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_RELEASE_MD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_DEBUG_MDD
+				"@Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_DEBUG_MDD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_RELEASE_MD
+				"@Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_RELEASE_MD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_shared_DLL_LIBRARY_DEBUG_MDD
+				"@Elektron-SDK-BinaryPack_rsslVACache_shared_DLL_LIBRARY_DEBUG_MDD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_shared_DLL_LIBRARY_RELEASE_MD
+				"@Elektron-SDK-BinaryPack_rsslVACache_shared_DLL_LIBRARY_RELEASE_MD@")
+
+
+get_filename_component(Elektron-SDK-BinaryPack_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(Elektron-SDK-BinaryPack_INCLUDE_DIRS @Elektron-SDK-BinaryPack_INCLUDE_DIRS@)
+
+DEBUG_PRINT(::MESSAGE " Elektron-SDK-BinaryPackConfig: 
+				${Elektron-SDK-BinaryPack_CMAKE_DIR}
+				${CMAKE_CURRENT_LIST_DIR}/Elektron-SDK-BinaryPackTargets.cmake
+")
+# Our library dependencies (contains definitions for IMPORTED targets)
+include("${Elektron-SDK-BinaryPack_CMAKE_DIR}/Elektron-SDK-BinaryPackTargets.cmake")
+
+# These are IMPORTED targets created by Elektron-SDK-BinaryPackTargetsTargets.cmake
+if (TARGET Elektron-SDK-BinaryPack::rsslVACache_static)
+	set(Elektron-SDK-BinaryPack_LIBRARIES Elektron-SDK-BinaryPack::rsslVACache_static 
+								Elektron-SDK-BinaryPack::rsslVACache_shared 
+								Elektron-SDK-BinaryPack::ansiLib 
+								Elektron-SDK-BinaryPack::dacsLib)
+elseif()
+	set(Elektron-SDK-BinaryPack_LIBRARIES  rsslVACache_static rsslVACache_shared ansiLib dacsLib)
+endif()
+
+
