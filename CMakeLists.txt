@@ -71,6 +71,11 @@ mark_as_advanced(Elektron-SDK-BinaryPack_DIR
 set(_plat_suffix)
 set(_plat_suffix2)
 if ( CMAKE_HOST_UNIX )
+	# Run the LinuxSoLink to generate binary version and .so links
+	execute_process(COMMAND ./LinuxSoLink
+				RESULT_VARIABLE _ret_val
+				WORKING_DIRECTORY "${Elektron-SDK-BinaryPack_SOURCE_DIR}"
+				)
     # Because of some legacy static path definitions, some paths
     # have GCC and/or OL6 in place of GNU and/or RHEL6.  So in order to support
     # old past haunts, hints will be added in case past wrongs
