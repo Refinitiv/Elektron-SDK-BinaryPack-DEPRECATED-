@@ -23,8 +23,8 @@ set(Elektron-SDK-BinaryPack_dacs_LIBRARY
 				"@Elektron-SDK-BinaryPack_dacs_LIBRARY@")
 set(Elektron-SDK-BinaryPack_ansi_LIBRARY
 				"@Elektron-SDK-BinaryPack_ansi_LIBRARY@")
-set(Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY
-				"@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY@")
+set(Elektron-SDK-BinaryPack_rsslVACache_LIBRARY
+				"@Elektron-SDK-BinaryPack_rsslVACache_LIBRARY@")
 set(Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY
 				"@Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY@")
 
@@ -36,10 +36,10 @@ set(Elektron-SDK-BinaryPack_ansi_LIBRARY_DEBUG_MDD
 				"@Elektron-SDK-BinaryPack_ansi_LIBRARY_DEBUG_MDD@")
 set(Elektron-SDK-BinaryPack_ansi_LIBRARY_RELEASE_MD
 				"@Elektron-SDK-BinaryPack_ansi_LIBRARY_RELEASE_MD@")
-set(Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_DEBUG_MDD
-				"@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_DEBUG_MDD@")
-set(Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_RELEASE_MD
-				"@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_RELEASE_MD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_LIBRARY_DEBUG_MDD
+				"@Elektron-SDK-BinaryPack_rsslVACache_LIBRARY_DEBUG_MDD@")
+set(Elektron-SDK-BinaryPack_rsslVACache_LIBRARY_RELEASE_MD
+				"@Elektron-SDK-BinaryPack_rsslVACache_LIBRARY_RELEASE_MD@")
 set(Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_DEBUG_MDD
 				"@Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_DEBUG_MDD@")
 set(Elektron-SDK-BinaryPack_rsslVACache_shared_LIBRARY_RELEASE_MD
@@ -61,13 +61,13 @@ DEBUG_PRINT(::MESSAGE " Elektron-SDK-BinaryPackConfig:
 include("${Elektron-SDK-BinaryPack_CMAKE_DIR}/Elektron-SDK-BinaryPackTargets.cmake")
 
 # These are IMPORTED targets created by Elektron-SDK-BinaryPackTargetsTargets.cmake
-if (TARGET Elektron-SDK-BinaryPack::rsslVACache_static)
-	set(Elektron-SDK-BinaryPack_LIBRARIES Elektron-SDK-BinaryPack::rsslVACache_static 
+if (TARGET Elektron-SDK-BinaryPack::rsslVACache)
+	set(Elektron-SDK-BinaryPack_LIBRARIES Elektron-SDK-BinaryPack::rsslVACache
 								Elektron-SDK-BinaryPack::rsslVACache_shared 
 								Elektron-SDK-BinaryPack::ansiLib 
 								Elektron-SDK-BinaryPack::dacsLib)
 elseif()
-	set(Elektron-SDK-BinaryPack_LIBRARIES  rsslVACache_static rsslVACache_shared ansiLib dacsLib)
+	set(Elektron-SDK-BinaryPack_LIBRARIES  rsslVACache rsslVACache_shared ansiLib dacsLib)
 endif()
 
 

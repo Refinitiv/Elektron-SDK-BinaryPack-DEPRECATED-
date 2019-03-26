@@ -16,7 +16,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_targetsDefined)
 set(_targetsNotDefined)
 set(_expectedTargets)
-foreach(_expectedTarget Elektron-SDK-BinaryPack::rsslVACache_static Elektron-SDK-BinaryPack::rsslVACache_shared Elektron-SDK-BinaryPack::dacsLib Elektron-SDK-BinaryPack::ansiLib)
+foreach(_expectedTarget Elektron-SDK-BinaryPack::rsslVACache Elektron-SDK-BinaryPack::rsslVACache_shared Elektron-SDK-BinaryPack::dacsLib Elektron-SDK-BinaryPack::ansiLib)
   list(APPEND _expectedTargets ${_expectedTarget})
   if(NOT TARGET ${_expectedTarget})
     list(APPEND _targetsNotDefined ${_expectedTarget})
@@ -40,9 +40,9 @@ unset(_targetsDefined)
 unset(_targetsNotDefined)
 unset(_expectedTargets)
 
-# Create imported target Elektron-SDK-BinaryPack::rsslVACache_static
-add_library(Elektron-SDK-BinaryPack::rsslVACache_static STATIC IMPORTED)
-set_target_properties(Elektron-SDK-BinaryPack::rsslVACache_static 
+# Create imported target Elektron-SDK-BinaryPack::rsslVACache
+add_library(Elektron-SDK-BinaryPack::rsslVACache STATIC IMPORTED)
+set_target_properties(Elektron-SDK-BinaryPack::rsslVACache 
                       PROPERTIES
                         INTERFACE_INCLUDE_DIRECTORIES 
                             "@Elektron-SDK-BinaryPack_rsslVACache_INCLUDE_DIRS@"
@@ -71,15 +71,15 @@ set_target_properties(Elektron-SDK-BinaryPack::ansiLib
 )
 
 if (CMAKE_HOST_UNIX)
-    # Import target "Elektron-SDK-BinaryPack::rsslVACache_static" for configuration Type
-    set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache_static 
+    # Import target "Elektron-SDK-BinaryPack::rsslVACache" for configuration Type
+    set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache 
                         APPEND PROPERTY 
                             IMPORTED_CONFIGURATIONS @_CONFIG_TYPE_U@)
-    set_target_properties(Elektron-SDK-BinaryPack::rsslVACache_static 
+    set_target_properties(Elektron-SDK-BinaryPack::rsslVACache 
                           PROPERTIES
                             IMPORTED_LINK_INTERFACE_LANGUAGES_@_CONFIG_TYPE_U@ "C"
                             IMPORTED_LOCATION_@_CONFIG_TYPE_U@ 
-                                "@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY@"
+                                "@Elektron-SDK-BinaryPack_rsslVACache_LIBRARY@"
       )
     # Import target "Elektron-SDK-BinaryPack::rsslVACache_shared" for configuration Type
     set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache_shared 
@@ -159,24 +159,24 @@ else() # if (WIN32)
                             IMPORTED_LOCATION_RELEASE_MD 
                                 "@Elektron-SDK-BinaryPack_ansi_LIBRARY_RELEASE_MD@"
       )
-    # Import target "Elektron-SDK-BinaryPack::rsslVACache_static" for configuration type
-    set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache_static 
+    # Import target "Elektron-SDK-BinaryPack::rsslVACache" for configuration type
+    set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache 
                         APPEND PROPERTY 
                             IMPORTED_CONFIGURATIONS DEBUG_MDD)
-    set_target_properties(Elektron-SDK-BinaryPack::rsslVACache_static 
+    set_target_properties(Elektron-SDK-BinaryPack::rsslVACache 
                           PROPERTIES
                             IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG_MDD "C"
                             IMPORTED_LOCATION_DEBUG_MDD 
-                                "@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_DEBUG_MDD@"
+                                "@Elektron-SDK-BinaryPack_rsslVACache_LIBRARY_DEBUG_MDD@"
       )
-    set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache_static 
+    set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache 
                         APPEND PROPERTY 
                             IMPORTED_CONFIGURATIONS RELEASE_MD)
-    set_target_properties(Elektron-SDK-BinaryPack::rsslVACache_static 
+    set_target_properties(Elektron-SDK-BinaryPack::rsslVACache 
                           PROPERTIES
                             IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE_MD "C"
                             IMPORTED_LOCATION_RELEASE_MD 
-                                "@Elektron-SDK-BinaryPack_rsslVACache_static_LIBRARY_RELEASE_MD@"
+                                "@Elektron-SDK-BinaryPack_rsslVACache_LIBRARY_RELEASE_MD@"
       )
      # Import target "Elektron-SDK-BinaryPack::rsslVACache_shared" for configuration type
     set_property(TARGET Elektron-SDK-BinaryPack::rsslVACache_shared 

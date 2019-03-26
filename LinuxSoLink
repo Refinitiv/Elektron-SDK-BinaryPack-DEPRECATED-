@@ -1,31 +1,38 @@
 #!/bin/bash
 
 ROOT=$(pwd)
+esdkVMajor="3"
+esdkVMinor="3"
+esdkVPatch="0"
+esdkVTweak="0"
+
+vaCacheSO="3"
+relMCastSO="1"
 
 for dir in $(find $ROOT/Cpp-C/Eta/Libs -name Shared -type d)
 do
     cd $dir
     
-    # assume we have librsslVACache.so.3.2.0.0 which is not a link
-    if [ -f librsslVACache.so.3.2.2.0 ] && [ ! -h librsslVACache.so.3.2.2.0 ]
+    # assume we have librsslVACache.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} which is not a link
+    if [ -f librsslVACache.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} ] && [ ! -h librsslVACache.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} ]
     then
-	if [ ! -f librsslVACache.so.3 ]
-	then ln -s librsslVACache.so.3.2.2.0 librsslVACache.so.3
+	if [ ! -f librsslVACache.so.${vaCacheSO} ]
+	then ln -s librsslVACache.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} librsslVACache.so.${vaCacheSO}
 	else
-	    if [ ! -h librsslVACache.so.3 ]
+	    if [ ! -h librsslVACache.so.${vaCacheSO} ]
 	    then
-		rm -f librsslVACache.so.3
-		ln -s librsslVACache.so.3.2.2.0 librsslVACache.so.3
+		rm -f librsslVACache.so.${vaCacheSO}
+		ln -s librsslVACache.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} librsslVACache.so.${vaCacheSO}
 	    fi
 	fi
 
 	if [ ! -f librsslVACache.so ]
-	then ln -s librsslVACache.so.3 librsslVACache.so
+	then ln -s librsslVACache.so.${vaCacheSO} librsslVACache.so
 	else
 	    if [ ! -h librsslVACache.so ]
 	    then
 		rm -f librsslVACache.so
-		ln -s librsslVACache.so.3 librsslVACache.so
+		ln -s librsslVACache.so.${vaCacheSO} librsslVACache.so
 	    fi
 	fi
     fi
@@ -35,26 +42,26 @@ for dir in $(find $ROOT/Cpp-C/Eta/Libs -name Shared -type d)
 do
     cd $dir
     
-    # assume we have librsslRelMcast.so.3.2.0.0 which is not a link
-    if [ -f librsslRelMcast.so.3.2.2.0 ] && [ ! -h librsslRelMcast.so.3.2.2.0 ]
+    # assume we have librsslRelMcast.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} which is not a link
+    if [ -f librsslRelMcast.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} ] && [ ! -h librsslRelMcast.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} ]
     then
-	if [ ! -f librsslRelMcast.so.1 ]
-	then ln -s librsslRelMcast.so.3.2.2.0 librsslRelMcast.so.1
+	if [ ! -f librsslRelMcast.so.${relMCastSO} ]
+	then ln -s librsslRelMcast.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} librsslRelMcast.so.${relMCastSO}
 	else
-	    if [ ! -h librsslRelMcast.so.1 ]
+	    if [ ! -h librsslRelMcast.so.${relMCastSO} ]
 	    then
-		rm -f librsslRelMcast.so.1
-		ln -s librsslRelMcast.so.3.2.2.0 librsslRelMcast.so.1
+		rm -f librsslRelMcast.so.${relMCastSO}
+		ln -s librsslRelMcast.so.${esdkVMajor}.${esdkVMinor}.${esdkVPatch}.${esdkVTweak} librsslRelMcast.so.${relMCastSO}
 	    fi
 	fi
 
 	if [ ! -f librsslRelMcast.so ]
-	then ln -s librsslRelMcast.so.1 librsslRelMcast.so
+	then ln -s librsslRelMcast.so.${relMCastSO} librsslRelMcast.so
 	else
 	    if [ ! -h librsslRelMcast.so ]
 	    then
 		rm -f librsslRelMcast.so
-		ln -s librsslRelMcast.so.1 librsslRelMcast.so
+		ln -s librsslRelMcast.so.${relMCastSO} librsslRelMcast.so
 	    fi
 	fi
     fi
