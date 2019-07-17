@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(Elektron-SDK-BinaryPack VERSION 1.2.2.0)
+project(Elektron-SDK-BinaryPack VERSION 1.3.1.0)
 
 set(Elektron-SDK-BinaryPack_CMAKE_DIR "${Elektron-SDK-BinaryPack_SOURCE_DIR}/CMake")
 list(APPEND CMAKE_MODULE_PATH ${Elektron-SDK-BinaryPack_CMAKE_DIR})
