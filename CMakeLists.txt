@@ -1,15 +1,6 @@
 cmake_minimum_required(VERSION 3.10.3)
 
-project(Elektron-SDK-BinaryPack 
-						VERSION 
-							1.3.0.0
-		)
-
-set(RCDEV_NORMALIZE_COMPILER_VERERSION ON)
-if (EXTERNAL_MODULE_PATH)
-	string(REPLACE "|" ";" _extern_modules "${EXTERNAL_MODULE_PATH}")
-	list(APPEND CMAKE_MODULE_PATH "${_extern_modules}")
-endif()
+project(Elektron-SDK-BinaryPack VERSION 1.3.1.0)
 
 set(Elektron-SDK-BinaryPack_CMAKE_DIR "${Elektron-SDK-BinaryPack_SOURCE_DIR}/CMake")
 list(APPEND CMAKE_MODULE_PATH "${Elektron-SDK-BinaryPack_CMAKE_DIR}")
